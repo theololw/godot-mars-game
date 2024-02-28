@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckuiiij5m3s67"]
+
+[ext_resource type="Script" path="res://other/pause_menu.gd" id="1_2d2we"]
+[ext_resource type="Texture2D" uid="uid://b71avd83oyk8s" path="res://sprites/ui/pause_menu.png" id="1_v8mu5"]
+
+[node name="pauseMenu" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_2d2we")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="PauseMenu" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(960, 540)
+scale = Vector2(8, 8)
+texture = ExtResource("1_v8mu5")

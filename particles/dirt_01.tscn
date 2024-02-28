@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckwx8pah646c7"]
+
+[ext_resource type="Texture2D" uid="uid://dae4wlqln022x" path="res://particles/dirt_01.png" id="1_smge5"]
+
+[node name="Dirt01" type="Sprite2D"]
+modulate = Color(1, 0.266667, 0, 0.129412)
+texture = ExtResource("1_smge5")

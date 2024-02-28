@@ -1,0 +1,287 @@
+[gd_scene load_steps=18 format=3 uid="uid://im8wtxhj0x2i"]
+
+[ext_resource type="Texture2D" uid="uid://b6dn5115sr7th" path="res://sprites/astronaut.png" id="1_5ct4t"]
+[ext_resource type="Script" path="res://players/astronaut.gd" id="1_vdrd5"]
+[ext_resource type="Shader" path="res://shaders/distance_blur.gdshader" id="4_55id8"]
+[ext_resource type="Shader" path="res://shaders/radar.gdshader" id="5_gsn01"]
+[ext_resource type="FontFile" uid="uid://cu1c0u206fqi1" path="res://sprites/ui/EndlessBossBattleRegular-v7Ey.ttf" id="6_yc3cr"]
+[ext_resource type="Script" path="res://players/dirt_generation.gd" id="6_yoma1"]
+[ext_resource type="Script" path="res://players/airTimer.gd" id="7_pxw2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd3st"]
+size = Vector2(64, 56)
+
+[sub_resource type="Animation" id="Animation_dnhsf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Astronaut:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Astronaut:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_nhphf"]
+resource_name = "walking"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Astronaut:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.401422, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -8), Vector2(0, 0), Vector2(0, -8), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Astronaut:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 2, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vayg"]
+_data = {
+"RESET": SubResource("Animation_dnhsf"),
+"walking": SubResource("Animation_nhphf")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8upfn"]
+shader = ExtResource("4_55id8")
+shader_parameter/blur_radius = 0.2
+shader_parameter/blur_amount = 1.0
+shader_parameter/blur_inner = 0.6
+shader_parameter/blur_outer = 0.66
+
+[sub_resource type="Animation" id="Animation_t5cej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("distance_blur:material:shader_parameter/blur_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("distance_blur:material:shader_parameter/blur_amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("distance_blur:material:shader_parameter/blur_inner")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("distance_blur:material:shader_parameter/blur_outer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.66]
+}
+
+[sub_resource type="Animation" id="Animation_l8rpp"]
+resource_name = "asphyxiation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("distance_blur:material:shader_parameter/blur_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.2, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("distance_blur:material:shader_parameter/blur_amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 5.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("distance_blur:material:shader_parameter/blur_inner")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.6, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("distance_blur:material:shader_parameter/blur_outer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.66, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gf7o4"]
+_data = {
+"RESET": SubResource("Animation_t5cej"),
+"asphyxiation": SubResource("Animation_l8rpp")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_3g75l"]
+font_size = 176
+font_color = Color(0.345098, 1, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_auqo2"]
+shader = ExtResource("5_gsn01")
+shader_parameter/shake_power = 0.02
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[node name="astronaut" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 37
+script = ExtResource("1_vdrd5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_fd3st")
+
+[node name="Astronaut" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+scale = Vector2(8, 8)
+texture = ExtResource("1_5ct4t")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3vayg")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.3, 1.3)
+position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="airTimer" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("7_pxw2h")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/airTimer"]
+
+[node name="distance_blur" type="ColorRect" parent="CanvasLayer/airTimer"]
+material = SubResource("ShaderMaterial_8upfn")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="asphyxiation" type="AnimationPlayer" parent="CanvasLayer/airTimer"]
+libraries = {
+"": SubResource("AnimationLibrary_gf7o4")
+}
+
+[node name="airBar" type="ProgressBar" parent="CanvasLayer/airTimer"]
+offset_left = 64.0
+offset_top = 960.0
+offset_right = 320.0
+offset_bottom = 1024.0
+theme_override_fonts/font = ExtResource("6_yc3cr")
+theme_override_font_sizes/font_size = 44
+max_value = 30.0
+
+[node name="dirt_generation" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("6_yoma1")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RockCount" type="Label" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 176.0
+offset_bottom = 240.0
+scale = Vector2(0.75, 0.75)
+theme_override_fonts/font = ExtResource("6_yc3cr")
+theme_override_font_sizes/font_size = 88
+text = "0"
+label_settings = SubResource("LabelSettings_3g75l")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="glitch" type="ColorRect" parent="CanvasLayer2"]
+visible = false
+material = SubResource("ShaderMaterial_auqo2")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[connection signal="timeout" from="CanvasLayer/airTimer/Timer" to="CanvasLayer/airTimer" method="_on_timer_timeout"]

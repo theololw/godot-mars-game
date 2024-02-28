@@ -1,0 +1,147 @@
+[gd_scene load_steps=18 format=3 uid="uid://ckobn7rildqfq"]
+
+[ext_resource type="Script" path="res://structures/lander.gd" id="1_jo5qb"]
+[ext_resource type="Texture2D" uid="uid://bbrqdx8xixsfw" path="res://sprites/lander.png" id="2_8kqbs"]
+[ext_resource type="Texture2D" uid="uid://bog644fk6jygf" path="res://sprites/ui/enter.png" id="3_c68rq"]
+[ext_resource type="Texture2D" uid="uid://dtl26oympwbr4" path="res://particles/smoke_04.png" id="4_64tfn"]
+[ext_resource type="Script" path="res://structures/BUSdeployPath.gd" id="4_bervc"]
+[ext_resource type="Script" path="res://structures/BUShatch.gd" id="4_umbl2"]
+[ext_resource type="PackedScene" uid="uid://f8omim7c7an3" path="res://structures/base_upgrade_station.tscn" id="5_iw5ul"]
+[ext_resource type="Texture2D" uid="uid://crat8fe18r5ni" path="res://sprites/ui/open_ui.png" id="5_wfnsv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fv8yj"]
+size = Vector2(256, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbtws"]
+size = Vector2(64, 24)
+
+[sub_resource type="Curve" id="Curve_pcahq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.373333, 0.571429), 0.0, 0.0, 0, 0, Vector2(1, 0.659341), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_foq7g"]
+curve = SubResource("Curve_pcahq")
+
+[sub_resource type="Curve" id="Curve_d6i1x"]
+_data = [Vector2(0, 0.384615), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jw23v"]
+curve = SubResource("Curve_d6i1x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jxpoe"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(0, 20, 0)
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 37.05
+initial_velocity_max = 37.05
+gravity = Vector3(0, 0, 0)
+damping_min = 100.0
+damping_max = 100.0
+damping_curve = SubResource("CurveTexture_foq7g")
+scale_min = 0.0
+scale_max = 0.05
+scale_curve = SubResource("CurveTexture_jw23v")
+color = Color(0.478431, 0.478431, 0.478431, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nxs7"]
+size = Vector2(66, 80)
+
+[sub_resource type="Curve2D" id="Curve2D_qqhne"]
+_data = {
+"points": PackedVector2Array(269.606, 140.44, -269.606, -140.44, -86.1277, 32, 11.9869, 8.43241, -11.9869, -8.43241, -446.03, 128, 15.4598, 0.457906, -15.4598, -0.457906, -493.277, 112, 8.2118, -10.2182, -8.2118, 10.2182, -532.426, 128, 0.461896, 0, -0.461896, 0, -540.255, 128)
+}
+point_count = 5
+
+[node name="lander" type="Node2D"]
+script = ExtResource("1_jo5qb")
+
+[node name="Lander" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(8, 8)
+texture = ExtResource("2_8kqbs")
+
+[node name="rock_remover" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rock_remover"]
+shape = SubResource("RectangleShape2D_fv8yj")
+debug_color = Color(1, 0, 1, 0.270588)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-128, 112, -56, 112, -40, -32, 40, -32, 56, 112, 128, 112, 72, 48, 72, -40, 48, -64, -48, -64, -72, -40, -72, 48)
+
+[node name="enter" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enter"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_sbtws")
+debug_color = Color(100, 100, 0.7, 0.42)
+
+[node name="Enter" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+position = Vector2(0, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("3_c68rq")
+
+[node name="BUShatch" type="Node2D" parent="."]
+script = ExtResource("4_umbl2")
+
+[node name="Polygon2D" type="Polygon2D" parent="BUShatch"]
+color = Color(0.243137, 0.243137, 0.243137, 1)
+polygon = PackedVector2Array(-72, 24, -72, -32, -80, -32, -80, 24)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="BUShatch"]
+position = Vector2(-72, -8)
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_jxpoe")
+texture = ExtResource("4_64tfn")
+lifetime = 0.6
+
+[node name="OpenUi" type="Sprite2D" parent="BUShatch"]
+visible = false
+texture_filter = 1
+position = Vector2(-104, -56)
+scale = Vector2(2, 2)
+texture = ExtResource("5_wfnsv")
+
+[node name="BUShatchOpenArea" type="Area2D" parent="BUShatch"]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BUShatch/BUShatchOpenArea"]
+position = Vector2(-103, 0)
+shape = SubResource("RectangleShape2D_2nxs7")
+debug_color = Color(100, 100, 0.7, 0.42)
+
+[node name="BUSdeployPath" type="Path2D" parent="."]
+position = Vector2(8, -32)
+scale = Vector2(1.02174, 1)
+curve = SubResource("Curve2D_qqhne")
+script = ExtResource("4_bervc")
+deploySpeed = 10
+
+[node name="BUSfollow" type="PathFollow2D" parent="BUSdeployPath"]
+position = Vector2(-86.1277, 32)
+rotation = -2.66136
+loop = false
+
+[node name="base_upgrade_station" parent="BUSdeployPath/BUSfollow" instance=ExtResource("5_iw5ul")]
+rotation = 3.14159
+
+[connection signal="body_entered" from="enter" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="enter" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="BUShatch/BUShatchOpenArea" to="BUShatch" method="_on_bu_shatch_open_area_body_entered"]
+[connection signal="body_exited" from="BUShatch/BUShatchOpenArea" to="BUShatch" method="_on_bu_shatch_open_area_body_exited"]

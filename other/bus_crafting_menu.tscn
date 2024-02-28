@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://ui6801ewub6n"]
+
+[ext_resource type="Script" path="res://other/bus_crafting_menu.gd" id="1_m8prg"]
+[ext_resource type="Texture2D" uid="uid://b3rviaykbalu3" path="res://sprites/ui/hab_icon.png" id="2_eqe2y"]
+[ext_resource type="FontFile" uid="uid://cu1c0u206fqi1" path="res://sprites/ui/EndlessBossBattleRegular-v7Ey.ttf" id="3_hown0"]
+[ext_resource type="Texture2D" uid="uid://bw3warc0wwnxg" path="res://sprites/ui/BUS_menu_text.png" id="4_xvq5e"]
+
+[node name="BUS_crafting_menu" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_m8prg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 208.0
+offset_bottom = 144.0
+scale = Vector2(12, 12)
+tooltip_text = "Mars habitat. Essential for survival"
+texture_normal = ExtResource("2_eqe2y")
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1592.0
+offset_top = 928.0
+offset_right = 1792.0
+offset_bottom = 1024.0
+theme_override_fonts/font = ExtResource("3_hown0")
+theme_override_font_sizes/font_size = 88
+text = "exit"
+
+[node name="BusMenuText" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(1248, 216)
+scale = Vector2(8, 8)
+texture = ExtResource("4_xvq5e")
+vframes = 6
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]

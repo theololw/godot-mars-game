@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://qywvc4ydrt8x"]
+
+[ext_resource type="Script" path="res://rooms/lander_inside.gd" id="1_qvyu7"]
+[ext_resource type="Texture2D" uid="uid://bqbx6f0rt01oa" path="res://sprites/lande_room.png" id="1_ufs0j"]
+[ext_resource type="PackedScene" uid="uid://im8wtxhj0x2i" path="res://players/astronaut.tscn" id="2_r7kl5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ygia"]
+size = Vector2(48, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ibel"]
+size = Vector2(288, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l534l"]
+size = Vector2(96, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q00fc"]
+size = Vector2(96, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sll6m"]
+size = Vector2(96, 34)
+
+[node name="lander_inside" type="Node2D"]
+script = ExtResource("1_qvyu7")
+
+[node name="LandeRoom" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(8, 8)
+texture = ExtResource("1_ufs0j")
+
+[node name="astronaut" parent="." instance=ExtResource("2_r7kl5")]
+position = Vector2(0, 144)
+
+[node name="walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls"]
+
+[node name="left_wall" type="CollisionShape2D" parent="walls/StaticBody2D"]
+position = Vector2(-168, 0)
+shape = SubResource("RectangleShape2D_6ygia")
+
+[node name="right_wall" type="CollisionShape2D" parent="walls/StaticBody2D"]
+position = Vector2(168, 0)
+shape = SubResource("RectangleShape2D_6ygia")
+
+[node name="top_wall" type="CollisionShape2D" parent="walls/StaticBody2D"]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_1ibel")
+
+[node name="bottom_wall_left" type="CollisionShape2D" parent="walls/StaticBody2D"]
+position = Vector2(-96, 168)
+shape = SubResource("RectangleShape2D_l534l")
+
+[node name="bottom_wall_right" type="CollisionShape2D" parent="walls/StaticBody2D"]
+position = Vector2(96, 168)
+shape = SubResource("RectangleShape2D_l534l")
+
+[node name="exit_wall" type="CollisionShape2D" parent="walls/StaticBody2D"]
+position = Vector2(0, 224)
+shape = SubResource("RectangleShape2D_q00fc")
+
+[node name="exit" type="Node2D" parent="."]
+
+[node name="exit_door" type="Area2D" parent="exit"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit/exit_door"]
+position = Vector2(0, 209)
+shape = SubResource("RectangleShape2D_sll6m")
+debug_color = Color(100, 100, 0.702, 0.42)
+
+[connection signal="body_entered" from="exit/exit_door" to="." method="_on_exit_door_body_entered"]

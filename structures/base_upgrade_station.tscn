@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://f8omim7c7an3"]
+
+[ext_resource type="Texture2D" uid="uid://c327b5se7atgy" path="res://sprites/ui/structureSelect.png" id="1_5ru2h"]
+[ext_resource type="Script" path="res://structures/base_upgrade_station.gd" id="1_ssi1n"]
+[ext_resource type="Texture2D" uid="uid://2l5ym2xdtc6o" path="res://sprites/hab.png" id="3_il3mt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7i0md"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhfai"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1s6ew"]
+radius = 88.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd11k"]
+size = Vector2(64, 64)
+
+[node name="base_upgrade_station" type="Node2D"]
+script = ExtResource("1_ssi1n")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0, 1, 0.235294, 1)
+polygon = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_7i0md")
+
+[node name="rockRemover" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rockRemover"]
+shape = SubResource("RectangleShape2D_hhfai")
+
+[node name="interact" type="Area2D" parent="."]
+visible = false
+z_index = 1
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
+shape = SubResource("CircleShape2D_1s6ew")
+
+[node name="mouse_radius" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mouse_radius"]
+shape = SubResource("RectangleShape2D_jd11k")
+
+[node name="StructureSelect" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -96)
+scale = Vector2(4, 4)
+texture = ExtResource("1_5ru2h")
+hframes = 4
+
+[node name="Hab" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -480)
+scale = Vector2(8, 8)
+texture = ExtResource("3_il3mt")
+
+[connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
+[connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]
+[connection signal="mouse_entered" from="mouse_radius" to="." method="_on_mouse_radius_mouse_entered"]
+[connection signal="mouse_exited" from="mouse_radius" to="." method="_on_mouse_radius_mouse_exited"]
