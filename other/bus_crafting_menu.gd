@@ -19,3 +19,6 @@ func _process(delta):
 func _on_button_pressed():
 	Global.BUS_crafting_menu_open = false
 	get_tree().paused = false
+
+func _on_hab_button_pressed():
+	Global.hab_built = true

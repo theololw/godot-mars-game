@@ -23,7 +23,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control"]
+[node name="HAB_button" type="TextureButton" parent="CanvasLayer/Control"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 192.0
@@ -52,4 +52,5 @@ scale = Vector2(8, 8)
 texture = ExtResource("4_xvq5e")
 vframes = 6
 
+[connection signal="pressed" from="CanvasLayer/Control/HAB_button" to="." method="_on_hab_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]

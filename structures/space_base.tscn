@@ -1,24 +1,113 @@
-[gd_scene load_steps=3 format=3 uid="uid://b57kdpfumh8sd"]
+[gd_scene load_steps=7 format=3 uid="uid://b57kdpfumh8sd"]
 
+[ext_resource type="Script" path="res://structures/space_base.gd" id="1_c251c"]
 [ext_resource type="Texture2D" uid="uid://2l5ym2xdtc6o" path="res://sprites/hab.png" id="1_m5nyr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewj5r"]
 size = Vector2(384, 504)
 
+[sub_resource type="Animation" id="Animation_l2in4"]
+resource_name = "HAB_built"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hab:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D:collision_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_uk013"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hab:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D:collision_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_liw2w"]
+_data = {
+"HAB_built": SubResource("Animation_l2in4"),
+"RESET": SubResource("Animation_uk013")
+}
+
 [node name="space_base" type="Node2D"]
+script = ExtResource("1_c251c")
 
 [node name="Hab" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(8, 8)
 texture = ExtResource("1_m5nyr")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-192, 256, -192, -192, -136, -248, 136, -248, 192, -192, 192, 256, 48, 256, 32, 136, -32, 136, -48, 256)
 
 [node name="rock_remover" type="Area2D" parent="."]
-visible = false
 collision_layer = 16
 collision_mask = 4
 
@@ -26,3 +115,8 @@ collision_mask = 4
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_ewj5r")
 debug_color = Color(1, 0, 1, 0.270588)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_liw2w")
+}

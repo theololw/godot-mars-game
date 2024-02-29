@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://nqcymw07sr6g"]
+[gd_scene load_steps=11 format=3 uid="uid://nqcymw07sr6g"]
 
 [ext_resource type="Script" path="res://locations/large_rock_generation.gd" id="1_von81"]
 [ext_resource type="PackedScene" uid="uid://im8wtxhj0x2i" path="res://players/astronaut.tscn" id="2_i6c6x"]
 [ext_resource type="Texture2D" uid="uid://ded0nelahb5bs" path="res://sprites/tilemap.png" id="3_6eb0d"]
 [ext_resource type="PackedScene" uid="uid://ckobn7rildqfq" path="res://structures/lander.tscn" id="4_e4hbj"]
 [ext_resource type="Shader" path="res://shaders/dust_particles.gdshader" id="6_f8dlq"]
-[ext_resource type="PackedScene" uid="uid://b57kdpfumh8sd" path="res://structures/space_base.tscn" id="7_x2osm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gljgs"]
 texture = ExtResource("3_6eb0d")
@@ -61,6 +60,3 @@ offset_bottom = -2534.0
 scale = Vector2(1.76717, 5.88159)
 mouse_filter = 2
 color = Color(0.490196, 0.121569, 0, 1)
-
-[node name="space_base" parent="." instance=ExtResource("7_x2osm")]
-position = Vector2(-960, -192)

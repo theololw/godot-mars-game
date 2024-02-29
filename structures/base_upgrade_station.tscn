@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://f8omim7c7an3"]
+[gd_scene load_steps=8 format=3 uid="uid://f8omim7c7an3"]
 
 [ext_resource type="Texture2D" uid="uid://c327b5se7atgy" path="res://sprites/ui/structureSelect.png" id="1_5ru2h"]
 [ext_resource type="Script" path="res://structures/base_upgrade_station.gd" id="1_ssi1n"]
+[ext_resource type="PackedScene" uid="uid://b57kdpfumh8sd" path="res://structures/space_base.tscn" id="3_ah7wh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7i0md"]
 size = Vector2(64, 64)
@@ -60,6 +61,9 @@ position = Vector2(0, -96)
 scale = Vector2(4, 4)
 texture = ExtResource("1_5ru2h")
 hframes = 4
+
+[node name="space_base" parent="." instance=ExtResource("3_ah7wh")]
+position = Vector2(0, -608)
 
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]
