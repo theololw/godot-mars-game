@@ -24,6 +24,5 @@ func _ready():
 
 
 func _process(delta):
-	#delete later
-	BUS_crafted = true
+	pass
 

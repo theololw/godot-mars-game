@@ -5,5 +5,5 @@ extends Node2D
 func _process(delta):
 	if Global.hab_built == true:
 		anim_player.play("HAB_built")
-	elif Global.hab_built == false:
+	elif Global.hab_built != true:
 		anim_player.play("RESET")

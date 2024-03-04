@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://qywvc4ydrt8x"]
+[gd_scene load_steps=13 format=3 uid="uid://qywvc4ydrt8x"]
 
 [ext_resource type="Script" path="res://rooms/lander_inside.gd" id="1_qvyu7"]
 [ext_resource type="Texture2D" uid="uid://bqbx6f0rt01oa" path="res://sprites/lande_room.png" id="1_ufs0j"]
 [ext_resource type="PackedScene" uid="uid://im8wtxhj0x2i" path="res://players/astronaut.tscn" id="2_r7kl5"]
+[ext_resource type="Script" path="res://rooms/BUS_crafting_bench.gd" id="4_yp6a0"]
+[ext_resource type="Texture2D" uid="uid://d04yhl5npyfr" path="res://sprites/ui/ui_placeholder.png" id="5_vmnoe"]
+[ext_resource type="FontFile" uid="uid://cu1c0u206fqi1" path="res://sprites/ui/EndlessBossBattleRegular-v7Ey.ttf" id="6_4n4j0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ygia"]
 size = Vector2(48, 384)
@@ -18,6 +21,9 @@ size = Vector2(96, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sll6m"]
 size = Vector2(96, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdb4o"]
+size = Vector2(64, 42)
 
 [node name="lander_inside" type="Node2D"]
 script = ExtResource("1_qvyu7")
@@ -69,4 +75,45 @@ position = Vector2(0, 209)
 shape = SubResource("RectangleShape2D_sll6m")
 debug_color = Color(100, 100, 0.702, 0.42)
 
+[node name="BUS_crafting_bench" type="Node2D" parent="."]
+script = ExtResource("4_yp6a0")
+
+[node name="interact" type="Area2D" parent="BUS_crafting_bench"]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BUS_crafting_bench/interact"]
+position = Vector2(0, -91)
+shape = SubResource("RectangleShape2D_hdb4o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BUS_crafting_bench"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BUS_crafting_bench/StaticBody2D"]
+polygon = PackedVector2Array(-96, -72, -96, -144, 96, -144, 96, -64, 40, -64, 40, -120, -40, -120, -40, -64, -96, -64)
+
+[node name="Polygon2D" type="Polygon2D" parent="BUS_crafting_bench"]
+color = Color(0, 1, 0.333333, 1)
+polygon = PackedVector2Array(-96, -144, 96, -144, 96, -64, 40, -64, 40, -120, -40, -120, -40, -64, -96, -64)
+
+[node name="UiPlaceholder" type="Sprite2D" parent="BUS_crafting_bench"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2.27374e-13, -128)
+scale = Vector2(2.75, 2)
+texture = ExtResource("5_vmnoe")
+
+[node name="Label" type="Label" parent="BUS_crafting_bench/UiPlaceholder"]
+offset_left = -23.2727
+offset_top = -4.0
+offset_right = 968.727
+offset_bottom = 84.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_color = Color(0.345098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("6_4n4j0")
+theme_override_font_sizes/font_size = 88
+text = "base upgrade station
+                  25 rock"
+
 [connection signal="body_entered" from="exit/exit_door" to="." method="_on_exit_door_body_entered"]
+[connection signal="body_entered" from="BUS_crafting_bench/interact" to="BUS_crafting_bench" method="_on_interact_body_entered"]
+[connection signal="body_exited" from="BUS_crafting_bench/interact" to="BUS_crafting_bench" method="_on_interact_body_exited"]
