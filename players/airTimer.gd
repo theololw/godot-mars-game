@@ -7,7 +7,6 @@ func _ready():
 	$asphyxiation.play("RESET")
 	if get_tree().current_scene.name == "locationOne" and Global.BUS_crafting_menu_open != true:
 		timer.start()
-		print("yuh")
 	elif get_tree().current_scene.name == "lander_inside":
 		Global.airLeft = Global.maxAir
 	
@@ -20,7 +19,6 @@ func _process(delta):
 		$asphyxiation.play("asphyxiation")
 		if get_tree().current_scene.name == "locationOne":
 			await $asphyxiation.animation_finished
-			print("ded")
 			get_tree().quit()
 
 func _on_timer_timeout():

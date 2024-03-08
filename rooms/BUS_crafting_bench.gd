@@ -14,6 +14,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("space") and Global.rockCount > 24:
 			Global.BUS_crafted = true
 			Global.rockCount -= 25
+			$UiPlaceholder.hide()
 	elif inRange == false:
 		$UiPlaceholder.hide()
 	

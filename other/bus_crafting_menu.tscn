@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ui6801ewub6n"]
+[gd_scene load_steps=6 format=3 uid="uid://ui6801ewub6n"]
 
 [ext_resource type="Script" path="res://other/bus_crafting_menu.gd" id="1_m8prg"]
 [ext_resource type="Texture2D" uid="uid://b3rviaykbalu3" path="res://sprites/ui/hab_icon.png" id="2_eqe2y"]
+[ext_resource type="Texture2D" uid="uid://2l5ym2xdtc6o" path="res://sprites/hab.png" id="3_duefh"]
 [ext_resource type="FontFile" uid="uid://cu1c0u206fqi1" path="res://sprites/ui/EndlessBossBattleRegular-v7Ey.ttf" id="3_hown0"]
+[ext_resource type="Texture2D" uid="uid://dxgmk01nqm7om" path="res://sprites/ui/lander_icon.png" id="4_f1o6k"]
 
 [node name="BUS_crafting_menu" type="Node2D"]
 process_mode = 3
@@ -16,14 +18,15 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.196078, 0.196078, 0.196078, 1)
 
-[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
+[node name="Habitat_selection" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="selection_background" type="Polygon2D" parent="CanvasLayer/Habitat_selection"]
 position = Vector2(-16, 0)
 color = Color(0.14902, 0.14902, 0.14902, 1)
 polygon = PackedVector2Array(1104, 1080, 1104, 0, 1424, 0, 1936, 0, 1936, 1080, 1424, 1080)
 
-[node name="Node2D" type="Node2D" parent="CanvasLayer"]
-
-[node name="Label" type="Label" parent="CanvasLayer/Node2D"]
+[node name="Label" type="Label" parent="CanvasLayer/Habitat_selection"]
 offset_left = 1152.0
 offset_top = 168.0
 offset_right = 2368.0
@@ -34,7 +37,31 @@ theme_override_fonts/font = ExtResource("3_hown0")
 theme_override_font_sizes/font_size = 176
 text = "MARS HABITAT"
 
-[node name="Node" type="Node" parent="CanvasLayer"]
+[node name="Hab" type="Sprite2D" parent="CanvasLayer/Habitat_selection"]
+self_modulate = Color(0.345098, 1, 0, 1)
+texture_filter = 1
+position = Vector2(1504, 504)
+scale = Vector2(6, 6)
+texture = ExtResource("3_duefh")
+
+[node name="placeholder1_selection" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="selection_background" type="Polygon2D" parent="CanvasLayer/placeholder1_selection"]
+position = Vector2(-16, 0)
+color = Color(0.14902, 0.14902, 0.14902, 1)
+polygon = PackedVector2Array(1104, 1080, 1104, 0, 1424, 0, 1936, 0, 1936, 1080, 1424, 1080)
+
+[node name="Label" type="Label" parent="CanvasLayer/placeholder1_selection"]
+offset_left = 1152.0
+offset_top = 168.0
+offset_right = 2368.0
+offset_bottom = 344.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.345098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_hown0")
+theme_override_font_sizes/font_size = 176
+text = "placeholder"
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -42,18 +69,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HAB_button" type="TextureButton" parent="CanvasLayer/Control"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 192.0
-offset_top = 128.0
-offset_right = 208.0
-offset_bottom = 144.0
-scale = Vector2(12, 12)
-tooltip_text = "Mars habitat. Essential for survival"
-texture_normal = ExtResource("2_eqe2y")
-
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
+[node name="exit" type="Button" parent="CanvasLayer/Control"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 64.0
@@ -65,5 +81,95 @@ theme_override_fonts/font = ExtResource("3_hown0")
 theme_override_font_sizes/font_size = 88
 text = "exit"
 
-[connection signal="pressed" from="CanvasLayer/Control/HAB_button" to="." method="_on_hab_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
+[node name="HAB_button" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 384.0
+offset_bottom = 320.0
+icon = ExtResource("2_eqe2y")
+expand_icon = true
+
+[node name="placeholder1_button" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+offset_left = 448.0
+offset_top = 128.0
+offset_right = 640.0
+offset_bottom = 320.0
+icon = ExtResource("4_f1o6k")
+expand_icon = true
+
+[node name="placeholder2_button" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+offset_left = 704.0
+offset_top = 128.0
+offset_right = 896.0
+offset_bottom = 320.0
+icon = ExtResource("4_f1o6k")
+expand_icon = true
+
+[node name="placeholder3_button" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+offset_left = 192.0
+offset_top = 384.0
+offset_right = 384.0
+offset_bottom = 576.0
+icon = ExtResource("4_f1o6k")
+expand_icon = true
+
+[node name="placeholder4_button" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+offset_left = 448.0
+offset_top = 384.0
+offset_right = 640.0
+offset_bottom = 576.0
+icon = ExtResource("4_f1o6k")
+expand_icon = true
+
+[node name="placeholder5_button" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+offset_left = 704.0
+offset_top = 384.0
+offset_right = 896.0
+offset_bottom = 576.0
+icon = ExtResource("4_f1o6k")
+expand_icon = true
+
+[node name="placeholder6_button" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+offset_left = 192.0
+offset_top = 640.0
+offset_right = 384.0
+offset_bottom = 832.0
+icon = ExtResource("4_f1o6k")
+expand_icon = true
+
+[node name="placeholder7_button" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+offset_left = 448.0
+offset_top = 640.0
+offset_right = 640.0
+offset_bottom = 832.0
+icon = ExtResource("4_f1o6k")
+expand_icon = true
+
+[node name="placeholder8_button" type="Button" parent="CanvasLayer/Control"]
+texture_filter = 1
+offset_left = 704.0
+offset_top = 640.0
+offset_right = 896.0
+offset_bottom = 832.0
+icon = ExtResource("4_f1o6k")
+expand_icon = true
+
+[connection signal="pressed" from="CanvasLayer/Control/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HAB_button" to="." method="_on_hab_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/placeholder1_button" to="." method="_on_placeholder_1_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/placeholder2_button" to="." method="_on_placeholder_2_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/placeholder3_button" to="." method="_on_placeholder_3_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/placeholder4_button" to="." method="_on_placeholder_4_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/placeholder5_button" to="." method="_on_placeholder_5_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/placeholder6_button" to="." method="_on_placeholder_6_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/placeholder7_button" to="." method="_on_placeholder_7_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/placeholder8_button" to="." method="_on_placeholder_8_button_pressed"]

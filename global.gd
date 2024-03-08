@@ -5,6 +5,7 @@ var hatch_opened
 var play_BUS_deploy_animation = false
 var BUS_deployed = false
 var BUS_crafted = false
+
 var hab_built = false
 
 #mats
@@ -19,10 +20,12 @@ var BUS_crafting_menu_open
 
 
 func _ready():
-	pass # Replace with function body.
-
-
-
+	cheats()
+	
 func _process(delta):
 	pass
+	
+
+func cheats():
+	BUS_crafted = true
 

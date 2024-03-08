@@ -1,24 +1,58 @@
 extends Node2D
 
+var selection = ""
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	$CanvasLayer/Habitat_selection.hide()
+	$CanvasLayer/placeholder1_selection.hide()
+	
 func _process(delta):
 	if Global.BUS_crafting_menu_open == true:
 		$CanvasLayer.show()
 		get_tree().paused = true
 	else:
 		$CanvasLayer.hide()
+	
+	
+	if selection == "HAB":
+		$CanvasLayer/Habitat_selection.show()
+	else:
+		$CanvasLayer/Habitat_selection.hide()
+	
+	if selection == "selection1":
+		$CanvasLayer/placeholder1_selection.show()
+	else:
+		$CanvasLayer/placeholder1_selection.hide()
 
 
-
-func _on_button_pressed():
+func _on_exit_pressed():
 	Global.BUS_crafting_menu_open = false
 	get_tree().paused = false
 
-func _on_hab_button_pressed():
-	Global.hab_built = true
+
+func _on_hab_button_2_pressed():
+	selection = "HAB"
+
+func _on_placeholder_1_button_pressed():
+	selection = "selection1"
+
+func _on_placeholder_2_button_pressed():
+	selection = "selection2"
+
+func _on_placeholder_3_button_pressed():
+	selection = "selection3"
+
+func _on_placeholder_4_button_pressed():
+	selection = "selection4"
+
+func _on_placeholder_5_button_pressed():
+	selection = "selection5"
+
+func _on_placeholder_6_button_pressed():
+	selection = "selection6"
+
+func _on_placeholder_7_button_pressed():
+	selection = "selection7"
+
+func _on_placeholder_8_button_pressed():
+	selection = "selection8"
