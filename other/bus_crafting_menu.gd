@@ -32,27 +32,22 @@ func _on_exit_pressed():
 
 func _on_hab_button_2_pressed():
 	selection = "HAB"
-
 func _on_placeholder_1_button_pressed():
 	selection = "selection1"
-
 func _on_placeholder_2_button_pressed():
 	selection = "selection2"
-
 func _on_placeholder_3_button_pressed():
 	selection = "selection3"
-
 func _on_placeholder_4_button_pressed():
 	selection = "selection4"
-
 func _on_placeholder_5_button_pressed():
 	selection = "selection5"
-
 func _on_placeholder_6_button_pressed():
 	selection = "selection6"
-
 func _on_placeholder_7_button_pressed():
 	selection = "selection7"
-
 func _on_placeholder_8_button_pressed():
 	selection = "selection8"
+
+func _on_build_hab_pressed():
+	Global.hab_built = true
