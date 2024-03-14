@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqs287omajn6x"]
+
+[ext_resource type="Script" path="res://other/inspect_tool.gd" id="1_3lwle"]
+[ext_resource type="FontFile" uid="uid://cu1c0u206fqi1" path="res://sprites/ui/EndlessBossBattleRegular-v7Ey.ttf" id="1_sevn7"]
+[ext_resource type="Texture2D" uid="uid://crtm2lhvdxy5r" path="res://sprites/ui/inspection_tool.png" id="2_2bjma"]
+[ext_resource type="Shader" path="res://shaders/radar.gdshader" id="4_soeld"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8r638"]
+shader = ExtResource("4_soeld")
+shader_parameter/shake_power = 0.02
+shader_parameter/shake_rate = 0.43
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 41.3
+shader_parameter/shake_color_rate = 0.001
+
+[node name="inspectTool" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_3lwle")
+
+[node name="InspectionTool" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(224, 960)
+scale = Vector2(3.06, 3.06)
+texture = ExtResource("2_2bjma")
+
+[node name="Polygon2D" type="Polygon2D" parent="InspectionTool"]
+show_behind_parent = true
+z_index = -1
+color = Color(0.00784314, 0.188235, 0.807843, 1)
+polygon = PackedVector2Array(-60.1307, -28.7582, 60.1307, -28.7582, 60.1307, 28.7582, -60.1307, 28.7582)
+
+[node name="Label" type="Label" parent="InspectionTool"]
+z_index = -1
+offset_left = -55.0
+offset_top = -21.0
+offset_right = 1777.0
+offset_bottom = 765.0
+scale = Vector2(0.06, 0.06)
+theme_override_fonts/font = ExtResource("1_sevn7")
+theme_override_font_sizes/font_size = 88
+text = "ggdsgfgd"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="glitch" type="ColorRect" parent="InspectionTool"]
+z_index = -1
+material = SubResource("ShaderMaterial_8r638")
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.173
+anchor_right = 0.275
+anchor_bottom = 0.623
+offset_left = -64.528
+offset_top = -42.072
+offset_right = 22.8
+offset_bottom = -8.872
+mouse_filter = 2

@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://nqcymw07sr6g"]
+[gd_scene load_steps=12 format=3 uid="uid://nqcymw07sr6g"]
 
+[ext_resource type="Script" path="res://locations/location_one.gd" id="1_ct8ak"]
 [ext_resource type="Script" path="res://locations/large_rock_generation.gd" id="1_von81"]
 [ext_resource type="PackedScene" uid="uid://im8wtxhj0x2i" path="res://players/astronaut.tscn" id="2_i6c6x"]
 [ext_resource type="Texture2D" uid="uid://ded0nelahb5bs" path="res://sprites/tilemap.png" id="3_6eb0d"]
@@ -34,6 +35,7 @@ shader_parameter/speed = Vector2(0.02, 0.01)
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_gie5w")
 
 [node name="locationOne" type="Node2D"]
+script = ExtResource("1_ct8ak")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -53,10 +55,10 @@ position = Vector2(0, -256)
 
 [node name="dust_particles" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_kigpf")
-offset_left = -3840.0
-offset_top = -3840.0
-offset_right = 506.0
-offset_bottom = -2534.0
+offset_left = -3768.0
+offset_top = -3864.0
+offset_right = 578.0
+offset_bottom = -2558.0
 scale = Vector2(1.76717, 5.88159)
 mouse_filter = 2
 color = Color(0.490196, 0.121569, 0, 1)

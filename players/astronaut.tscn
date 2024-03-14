@@ -245,10 +245,10 @@ libraries = {
 }
 
 [node name="airBar" type="ProgressBar" parent="CanvasLayer/airTimer"]
-offset_left = 64.0
-offset_top = 960.0
-offset_right = 320.0
-offset_bottom = 1024.0
+offset_left = 32.0
+offset_top = 792.0
+offset_right = 416.0
+offset_bottom = 848.0
 theme_override_fonts/font = ExtResource("6_yc3cr")
 theme_override_font_sizes/font_size = 44
 max_value = 30.0

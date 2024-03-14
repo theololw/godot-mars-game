@@ -16,6 +16,8 @@ func _on_mouse_radius_mouse_exited():
 func _process(_delta):
 	if inRange == true and mouseHover == true and Input.is_action_just_pressed("left_click"):
 		take_damage()
+	if mouseHover == true and Input.is_action_just_pressed("right_click"):
+		InspectTool.inspect("this is a rock. Mine it for materials")
 
 func take_damage():
 	health -= 1

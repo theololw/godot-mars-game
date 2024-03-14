@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b57kdpfumh8sd"]
+[gd_scene load_steps=9 format=3 uid="uid://b57kdpfumh8sd"]
 
 [ext_resource type="Script" path="res://structures/space_base.gd" id="1_c251c"]
 [ext_resource type="Texture2D" uid="uid://2l5ym2xdtc6o" path="res://sprites/hab.png" id="1_m5nyr"]
+[ext_resource type="Texture2D" uid="uid://bog644fk6jygf" path="res://sprites/ui/enter.png" id="3_oq13v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewj5r"]
 size = Vector2(384, 504)
@@ -139,6 +140,9 @@ _data = {
 "RESET": SubResource("Animation_uk013")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c52gg"]
+size = Vector2(64, 24)
+
 [node name="space_base" type="Node2D"]
 script = ExtResource("1_c251c")
 
@@ -147,13 +151,6 @@ visible = false
 texture_filter = 1
 scale = Vector2(8, 8)
 texture = ExtResource("1_m5nyr")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-192, 256, -192, -192, -136, -248, 136, -248, 192, -192, 192, 256, 48, 256, 32, 136, -32, 136, -48, 256)
 
 [node name="rock_remover" type="Area2D" parent="."]
 collision_layer = 0
@@ -164,7 +161,34 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_ewj5r")
 debug_color = Color(1, 0, 1, 0.270588)
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-192, 256, -192, -192, -136, -248, 136, -248, 192, -192, 192, 256, 48, 256, 32, 136, -32, 136, -48, 256)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_liw2w")
 }
+
+[node name="enter" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enter"]
+position = Vector2(0, 156)
+shape = SubResource("RectangleShape2D_c52gg")
+debug_color = Color(100, 100, 0.7, 0.42)
+
+[node name="Enter" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+position = Vector2(0, 136)
+scale = Vector2(2, 2)
+texture = ExtResource("3_oq13v")
+
+[connection signal="body_entered" from="enter" to="." method="_on_enter_body_entered"]
+[connection signal="body_exited" from="enter" to="." method="_on_enter_body_exited"]

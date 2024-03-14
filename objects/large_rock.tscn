@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7wwss8wgjl76"]
+[gd_scene load_steps=11 format=3 uid="uid://c7wwss8wgjl76"]
 
 [ext_resource type="Texture2D" uid="uid://bdn6ca7dsjn1u" path="res://sprites/rock.png" id="1_ksygd"]
 [ext_resource type="Script" path="res://objects/large_rock.gd" id="1_po8xs"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_f85i1"]
+polygon = PackedVector2Array(48, 56, 48, 40, 64, 40, 64, -8, 48, -8, 48, -40, 40, -40, 40, -48, 32, -48, 32, -56, -16, -56, -16, -40, -48, -40, -48, -16, -56, -16, -56, -8, -64, -8, -64, 40, -48, 40, -48, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vhbg"]
 size = Vector2(112, 112)
@@ -43,6 +46,9 @@ hue_variation_max = 1.0
 
 [node name="large rock" type="Node2D"]
 script = ExtResource("1_po8xs")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_f85i1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["buildingObstructer"]]
 collision_layer = 4

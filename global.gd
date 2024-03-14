@@ -15,15 +15,16 @@ var hardenedRockCount = 0
 #stats
 var maxAir = 30
 var airLeft = maxAir
+var lastBuildingEntered
 
 var BUS_crafting_menu_open
 
 
 func _ready():
-	cheats()
+	pass
 	
 func _process(delta):
-	pass
+	cheats()
 	
 
 func cheats():

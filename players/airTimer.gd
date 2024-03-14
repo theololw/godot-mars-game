@@ -7,10 +7,11 @@ func _ready():
 	$asphyxiation.play("RESET")
 	if get_tree().current_scene.name == "locationOne" and Global.BUS_crafting_menu_open != true:
 		timer.start()
+		
 	elif get_tree().current_scene.name == "lander_inside":
 		Global.airLeft = Global.maxAir
-	
-
+	elif get_tree().current_scene.name == "space_base_inside":
+			Global.airLeft = Global.maxAir
 
 func _process(delta):
 	air_bar.max_value = Global.maxAir

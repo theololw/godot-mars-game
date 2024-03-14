@@ -9,7 +9,7 @@ process_mode = 3
 script = ExtResource("1_2d2we")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 3
+layer = 4
 
 [node name="PauseMenu" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1

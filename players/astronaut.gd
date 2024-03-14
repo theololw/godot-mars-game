@@ -30,8 +30,8 @@ func cheats():
 	if Input.is_action_pressed("+"):
 		#$Camera2D.zoom.x += 0.01
 		#$Camera2D.zoom.y += 0.01
-		Global.rockCount += 500
+		Global.rockCount += 1
 	if Input.is_action_pressed("-"):
 		#$Camera2D.zoom.x -= 0.01
 		#$Camera2D.zoom.y -= 0.01
-		Global.rockCount -= 500
+		Global.rockCount -= 1
