@@ -24,7 +24,7 @@ func _ready():
 	pass
 	
 func _process(delta):
-	cheats()
+	pass
 	
 
 func cheats():

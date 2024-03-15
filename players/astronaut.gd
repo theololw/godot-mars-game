@@ -21,7 +21,6 @@ func items():
 
 func _physics_process(delta):
 	movement()
-	cheats()
 	items()
 
 
