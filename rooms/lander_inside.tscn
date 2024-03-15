@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://qywvc4ydrt8x"]
+[gd_scene load_steps=14 format=3 uid="uid://qywvc4ydrt8x"]
 
 [ext_resource type="Script" path="res://rooms/lander_inside.gd" id="1_qvyu7"]
 [ext_resource type="Texture2D" uid="uid://bqbx6f0rt01oa" path="res://sprites/lande_room.png" id="1_ufs0j"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://rooms/BUS_crafting_bench.gd" id="4_yp6a0"]
 [ext_resource type="Texture2D" uid="uid://d04yhl5npyfr" path="res://sprites/ui/ui_placeholder.png" id="5_vmnoe"]
 [ext_resource type="FontFile" uid="uid://cu1c0u206fqi1" path="res://sprites/ui/EndlessBossBattleRegular-v7Ey.ttf" id="6_4n4j0"]
+[ext_resource type="Script" path="res://inspect_scripts/BUS_crafting_bench_inspect.gd" id="7_4lw0v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ygia"]
 size = Vector2(48, 384)
@@ -117,6 +118,15 @@ theme_override_font_sizes/font_size = 88
 text = "base upgrade station
                   25 rock"
 
+[node name="inspect" type="Area2D" parent="BUS_crafting_bench"]
+script = ExtResource("7_4lw0v")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BUS_crafting_bench/inspect"]
+visible = false
+polygon = PackedVector2Array(-96, -64, -96, -144, 96, -144, 96, -64, 40, -64, 40, -120, -40, -120, -40, -64)
+
 [connection signal="body_entered" from="exit/exit_door" to="." method="_on_exit_door_body_entered"]
 [connection signal="body_entered" from="BUS_crafting_bench/interact" to="BUS_crafting_bench" method="_on_interact_body_entered"]
 [connection signal="body_exited" from="BUS_crafting_bench/interact" to="BUS_crafting_bench" method="_on_interact_body_exited"]
+[connection signal="mouse_entered" from="BUS_crafting_bench/inspect" to="BUS_crafting_bench/inspect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BUS_crafting_bench/inspect" to="BUS_crafting_bench/inspect" method="_on_mouse_exited"]

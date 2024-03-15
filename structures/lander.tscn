@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ckobn7rildqfq"]
+[gd_scene load_steps=19 format=3 uid="uid://ckobn7rildqfq"]
 
 [ext_resource type="Script" path="res://structures/lander.gd" id="1_jo5qb"]
 [ext_resource type="Texture2D" uid="uid://bbrqdx8xixsfw" path="res://sprites/lander.png" id="2_8kqbs"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://structures/BUShatch.gd" id="4_umbl2"]
 [ext_resource type="PackedScene" uid="uid://f8omim7c7an3" path="res://structures/base_upgrade_station.tscn" id="5_iw5ul"]
 [ext_resource type="Texture2D" uid="uid://crat8fe18r5ni" path="res://sprites/ui/open_ui.png" id="5_wfnsv"]
+[ext_resource type="Script" path="res://inspect_scripts/lander_inspect.gd" id="9_tft3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv8yj"]
 size = Vector2(256, 256)
@@ -141,7 +142,16 @@ loop = false
 [node name="base_upgrade_station" parent="BUSdeployPath/BUSfollow" instance=ExtResource("5_iw5ul")]
 rotation = 3.14159
 
+[node name="inspect" type="Area2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+script = ExtResource("9_tft3j")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="inspect"]
+polygon = PackedVector2Array(-128, 128, -128, 104, -64, 32, -64, -64, 72, -64, 72, 32, 128, 104, 128, 128)
+
 [connection signal="body_entered" from="enter" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="enter" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="BUShatch/BUShatchOpenArea" to="BUShatch" method="_on_bu_shatch_open_area_body_entered"]
 [connection signal="body_exited" from="BUShatch/BUShatchOpenArea" to="BUShatch" method="_on_bu_shatch_open_area_body_exited"]
+[connection signal="mouse_entered" from="inspect" to="inspect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="inspect" to="inspect" method="_on_mouse_exited"]

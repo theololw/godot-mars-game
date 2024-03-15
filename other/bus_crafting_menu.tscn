@@ -12,7 +12,7 @@ process_mode = 3
 script = ExtResource("1_m8prg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
+layer = 4
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1920.0

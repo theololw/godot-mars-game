@@ -1,0 +1,160 @@
+[gd_scene load_steps=7 format=3 uid="uid://baxdptflsjq7x"]
+
+[ext_resource type="Texture2D" uid="uid://crtm2lhvdxy5r" path="res://sprites/ui/inspection_tool.png" id="1_8lxf5"]
+[ext_resource type="Script" path="res://other/start_screen.gd" id="1_8r8tp"]
+[ext_resource type="Texture2D" uid="uid://ded0nelahb5bs" path="res://sprites/tilemap.png" id="1_afelh"]
+[ext_resource type="FontFile" uid="uid://cu1c0u206fqi1" path="res://sprites/ui/EndlessBossBattleRegular-v7Ey.ttf" id="3_uomjh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gedg0"]
+texture = ExtResource("1_afelh")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_16b6y"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_gedg0")
+
+[node name="start screen" type="Node2D"]
+script = ExtResource("1_8r8tp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="TileMap" type="TileMap" parent="CanvasLayer"]
+texture_filter = 1
+scale = Vector2(8, 8)
+tile_set = SubResource("TileSet_16b6y")
+format = 2
+layer_0/tile_data = PackedInt32Array(1048579, 65536, 0, 1048580, 65536, 0, 1048581, 65536, 0, 983045, 0, 1, 983046, 65536, 0, 983044, 0, 0, 983043, 65536, 0, 1048582, 65536, 0, 1048583, 65536, 1, 983048, 0, 1, 983049, 0, 0, 983047, 0, 1, 983050, 0, 0, 983051, 0, 1, 983052, 65536, 1, 983053, 65536, 0, 983054, 0, 1, 983055, 65536, 0, 983056, 0, 0, 983057, 0, 0, 983058, 65536, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 1, 983062, 65536, 0, 983063, 0, 0, 983064, 65536, 1, 983065, 0, 0, 983066, 0, 1, 983067, 0, 0, 983068, 65536, 1, 983069, 65536, 0, 1048605, 65536, 1, 1048604, 65536, 0, 1048603, 65536, 0, 1048602, 0, 0, 1048601, 0, 1, 1048600, 0, 1, 1048599, 65536, 0, 1048598, 0, 0, 1048597, 65536, 0, 1048596, 0, 0, 1048595, 0, 1, 1048594, 0, 0, 1048593, 65536, 0, 1048592, 0, 1, 1048591, 0, 1, 1048590, 0, 0, 1048589, 65536, 0, 1048588, 65536, 1, 1048587, 65536, 1, 1048586, 65536, 0, 1048585, 0, 1, 1048584, 0, 0, 1048578, 0, 0, 1048577, 0, 1, 1048576, 0, 1, 983040, 0, 1, 917504, 65536, 1, 851968, 65536, 0, 786432, 65536, 1, 720896, 0, 0, 0, 0, 1, 65536, 0, 0, 131072, 65536, 1, 196608, 65536, 0, 262144, 0, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 1, 524288, 0, 1, 589824, 65536, 0, 655360, 0, 0, 1, 65536, 0, 2, 0, 1, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 1, 7, 65536, 0, 8, 65536, 1, 9, 0, 1, 10, 65536, 0, 11, 65536, 0, 12, 0, 0, 13, 0, 0, 14, 65536, 0, 15, 0, 0, 16, 65536, 0, 17, 65536, 1, 18, 65536, 0, 19, 65536, 1, 20, 0, 1, 21, 0, 0, 22, 65536, 1, 23, 65536, 1, 24, 0, 0, 25, 65536, 1, 26, 0, 0, 27, 65536, 1, 28, 65536, 1, 29, 65536, 1, 65565, 0, 0, 131101, 65536, 1, 196637, 65536, 1, 262173, 65536, 1, 327709, 0, 1, 393245, 65536, 1, 458781, 65536, 0, 524317, 65536, 1, 589853, 0, 0, 655389, 65536, 1, 720925, 65536, 0, 786461, 0, 0, 851997, 65536, 0, 917533, 0, 0, 65564, 65536, 1, 65563, 0, 1, 65562, 65536, 1, 65561, 0, 0, 65560, 65536, 1, 65559, 0, 1, 65558, 65536, 1, 65557, 65536, 0, 65556, 0, 1, 65555, 0, 0, 65554, 0, 0, 65553, 0, 0, 65552, 0, 1, 65551, 0, 0, 65550, 65536, 1, 65549, 0, 0, 65548, 0, 1, 65547, 65536, 0, 65546, 65536, 1, 65545, 65536, 0, 65544, 65536, 1, 65543, 65536, 1, 65542, 65536, 0, 65541, 0, 1, 65540, 65536, 0, 65539, 65536, 0, 65538, 65536, 0, 65537, 0, 1, 983041, 65536, 0, 983042, 0, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
+color = Color(0.00784314, 0.188235, 0.807843, 1)
+polygon = PackedVector2Array(96, 144, 1816, 144, 1816, 960, 104, 960, 104, 152)
+
+[node name="InspectionTool" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(960, 552)
+scale = Vector2(14.24, 14.24)
+texture = ExtResource("1_8lxf5")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="continue" type="Label" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 752.0
+offset_top = 296.0
+offset_right = 1168.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_uomjh")
+theme_override_font_sizes/font_size = 88
+text = "start"
+horizontal_alignment = 1
+
+[node name="continue" type="Button" parent="CanvasLayer/Control/continue"]
+modulate = Color(1, 1, 1, 0.521569)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 416.0
+offset_bottom = 96.0
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/Control/continue/continue"]
+polygon = PackedVector2Array(0, 112, -8, 120, 432, 120, 432, -8, -8, -8, 0, 0, 424, 0, 424, 112)
+
+[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer/Control/continue/continue"]
+polygon = PackedVector2Array(-8, -8, -8, 120, 0, 112, 0, 0)
+
+[node name="placeholder1" type="Label" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 752.0
+offset_top = 456.0
+offset_right = 1336.0
+offset_bottom = 544.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_uomjh")
+theme_override_font_sizes/font_size = 88
+text = "placeholder"
+
+[node name="placeholder1" type="Button" parent="CanvasLayer/Control/placeholder1"]
+modulate = Color(1, 1, 1, 0.521569)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 416.0
+offset_bottom = 96.0
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/Control/placeholder1/placeholder1"]
+polygon = PackedVector2Array(0, 112, -8, 120, 432, 120, 432, -8, -8, -8, 0, 0, 424, 0, 424, 112)
+
+[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer/Control/placeholder1/placeholder1"]
+polygon = PackedVector2Array(-8, -8, -8, 120, 0, 112, 0, 0)
+
+[node name="placeholder2" type="Label" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 752.0
+offset_top = 616.0
+offset_right = 1336.0
+offset_bottom = 704.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_uomjh")
+theme_override_font_sizes/font_size = 88
+text = "placeholder"
+
+[node name="placeholder2" type="Button" parent="CanvasLayer/Control/placeholder2"]
+modulate = Color(1, 1, 1, 0.521569)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 416.0
+offset_bottom = 96.0
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/Control/placeholder2/placeholder2"]
+polygon = PackedVector2Array(0, 112, -8, 120, 432, 120, 432, -8, -8, -8, 0, 0, 424, 0, 424, 112)
+
+[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer/Control/placeholder2/placeholder2"]
+polygon = PackedVector2Array(-8, -8, -8, 120, 0, 112, 0, 0)
+
+[node name="quit" type="Label" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 752.0
+offset_top = 776.0
+offset_right = 1168.0
+offset_bottom = 864.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_uomjh")
+theme_override_font_sizes/font_size = 88
+text = "quit"
+horizontal_alignment = 1
+
+[node name="quit" type="Button" parent="CanvasLayer/Control/quit"]
+modulate = Color(1, 1, 1, 0.521569)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 416.0
+offset_bottom = 96.0
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/Control/quit/quit"]
+polygon = PackedVector2Array(0, 112, -8, 120, 432, 120, 432, -8, -8, -8, 0, 0, 424, 0, 424, 112)
+
+[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer/Control/quit/quit"]
+polygon = PackedVector2Array(-8, -8, -8, 120, 0, 112, 0, 0)
+
+[connection signal="pressed" from="CanvasLayer/Control/continue/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/quit/quit" to="." method="_on_quit_pressed"]

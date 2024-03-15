@@ -18,3 +18,4 @@ func _process(delta):
 	elif inRange == false:
 		$UiPlaceholder.hide()
 	
+

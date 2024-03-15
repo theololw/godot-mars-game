@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="mars game 4.2.1"
-run/main_scene="res://locations/location_one.tscn"
+run/main_scene="res://other/start_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=60
 boot_splash/bg_color=Color(0.0941176, 0.0941176, 0.0941176, 1)
