@@ -1,17 +1,74 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqs287omajn6x"]
+[gd_scene load_steps=11 format=3 uid="uid://cqs287omajn6x"]
 
 [ext_resource type="Script" path="res://other/inspect_tool.gd" id="1_3lwle"]
 [ext_resource type="FontFile" uid="uid://cu1c0u206fqi1" path="res://sprites/ui/EndlessBossBattleRegular-v7Ey.ttf" id="1_sevn7"]
 [ext_resource type="Texture2D" uid="uid://crtm2lhvdxy5r" path="res://sprites/ui/inspection_tool.png" id="2_2bjma"]
 [ext_resource type="Shader" path="res://shaders/radar.gdshader" id="4_soeld"]
+[ext_resource type="Texture2D" uid="uid://d3dcbtbao2psa" path="res://sprites/inspect_tool_progress.png" id="5_ecdyp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8r638"]
 shader = ExtResource("4_soeld")
-shader_parameter/shake_power = 0.02
-shader_parameter/shake_rate = 0.43
+shader_parameter/shake_power = 0.002
+shader_parameter/shake_rate = 0.2
 shader_parameter/shake_speed = 5.0
-shader_parameter/shake_block_size = 41.3
+shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.001
+
+[sub_resource type="Animation" id="Animation_mvupj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("backLight:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_oivoa"]
+resource_name = "inspect_tool_off"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("backLight:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_1xj2k"]
+resource_name = "inspect_tool_on"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("backLight:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_htd42"]
+_data = {
+"RESET": SubResource("Animation_mvupj"),
+"inspect_tool_off": SubResource("Animation_oivoa"),
+"inspect_tool_on": SubResource("Animation_1xj2k")
+}
 
 [node name="inspectTool" type="CanvasLayer"]
 layer = 3
@@ -23,11 +80,48 @@ position = Vector2(224, 960)
 scale = Vector2(3.06, 3.06)
 texture = ExtResource("2_2bjma")
 
-[node name="Polygon2D" type="Polygon2D" parent="InspectionTool"]
+[node name="black" type="Polygon2D" parent="InspectionTool"]
+z_index = -1
+color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+polygon = PackedVector2Array(-60.1307, -28.7582, 60.1307, -28.7582, 60.1307, 28.7582, -60.1307, 28.7582)
+
+[node name="backLight" type="Node2D" parent="InspectionTool"]
+scale = Vector2(1, 1e-05)
+
+[node name="Polygon2D" type="Polygon2D" parent="InspectionTool/backLight"]
 show_behind_parent = true
 z_index = -1
-color = Color(0.00784314, 0.188235, 0.807843, 1)
+color = Color(0.141176, 0.458824, 0, 1)
 polygon = PackedVector2Array(-60.1307, -28.7582, 60.1307, -28.7582, 60.1307, 28.7582, -60.1307, 28.7582)
+
+[node name="Polygon2D6" type="Polygon2D" parent="InspectionTool/backLight"]
+z_index = -1
+position = Vector2(0, 41.8301)
+color = Color(0.121569, 0.407843, 0, 1)
+polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
+
+[node name="Polygon2D5" type="Polygon2D" parent="InspectionTool/backLight"]
+z_index = -1
+position = Vector2(0, 31.3726)
+color = Color(0.121569, 0.407843, 0, 1)
+polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
+
+[node name="Polygon2D4" type="Polygon2D" parent="InspectionTool/backLight"]
+z_index = -1
+position = Vector2(0, 20.915)
+color = Color(0.121569, 0.407843, 0, 1)
+polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
+
+[node name="Polygon2D3" type="Polygon2D" parent="InspectionTool/backLight"]
+z_index = -1
+position = Vector2(0, 10.4575)
+color = Color(0.121569, 0.407843, 0, 1)
+polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
+
+[node name="Polygon2D2" type="Polygon2D" parent="InspectionTool/backLight"]
+z_index = -1
+color = Color(0.121569, 0.407843, 0, 1)
+polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
 
 [node name="Label" type="Label" parent="InspectionTool"]
 z_index = -1
@@ -43,7 +137,6 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="glitch" type="ColorRect" parent="InspectionTool"]
-z_index = -1
 material = SubResource("ShaderMaterial_8r638")
 anchors_preset = -1
 anchor_left = 0.051
@@ -51,7 +144,20 @@ anchor_top = 0.173
 anchor_right = 0.275
 anchor_bottom = 0.623
 offset_left = -64.528
-offset_top = -42.072
+offset_top = -35.072
 offset_right = 22.8
-offset_bottom = -8.872
+offset_bottom = -15.872
 mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InspectionTool"]
+libraries = {
+"": SubResource("AnimationLibrary_htd42")
+}
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="InspectionTool"]
+offset_left = -58.8235
+offset_top = 20.915
+offset_right = 59.1765
+offset_bottom = 60.915
+value = 100.0
+texture_progress = ExtResource("5_ecdyp")
