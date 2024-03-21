@@ -4,9 +4,9 @@ var inRange
 var hatch_opened = Global.hatch_opened
 @onready var open_ui = $OpenUi
 
-func _on_bu_shatch_open_area_body_entered(body):
+func _on_bu_shatch_open_area_body_entered(_body):
 	inRange = true
-func _on_bu_shatch_open_area_body_exited(body):
+func _on_bu_shatch_open_area_body_exited(_body):
 	inRange = false
 
 func _process(_delta):

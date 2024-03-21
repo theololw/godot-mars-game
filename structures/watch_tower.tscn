@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://b25nbrmn1ylue"]
+
+[ext_resource type="Script" path="res://structures/watch_tower.gd" id="1_3bagk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf0go"]
+size = Vector2(128, 53)
+
+[node name="watch_tower" type="Node2D"]
+script = ExtResource("1_3bagk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+
+[node name="Polygon2D3" type="Polygon2D" parent="Sprite2D"]
+position = Vector2(0, -32)
+polygon = PackedVector2Array(-80, 32, -64, 32, -64, 16, 64, 16, 64, 32, 80, 32, 80, 0, -80, 0)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Sprite2D"]
+position = Vector2(0, -64)
+polygon = PackedVector2Array(-80, 32, -64, 32, -64, 16, 64, 16, 64, 32, 80, 32, 80, 0, -80, 0)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Sprite2D"]
+position = Vector2(0, -96)
+polygon = PackedVector2Array(-80, 32, -64, 32, -64, 16, 64, 16, 64, 32, 80, 32, 80, 0, -80, 0)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Sprite2D"]
+position = Vector2(0, -128)
+polygon = PackedVector2Array(-80, 32, -64, 32, -64, 16, 64, 16, 64, 32, 80, 32, 80, 0, -80, 0)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Sprite2D"]
+position = Vector2(0, -160)
+polygon = PackedVector2Array(-80, 32, -64, 32, -64, 16, 64, 16, 64, 32, 80, 32, 80, 0, -80, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Sprite2D"]
+polygon = PackedVector2Array(-80, 32, -64, 32, -64, 16, 64, 16, 64, 32, 80, 32, 80, 0, -80, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="Sprite2D"]
+polygon = PackedVector2Array(-64, 192, -64, 128, -32, 96, 40, 96, 64, 128, 64, 192, 128, 192, 128, 64, 96, 32, -96, 32, -128, 64, -128, 192)
+
+[node name="Polygon2D8" type="Polygon2D" parent="Sprite2D"]
+polygon = PackedVector2Array(-80, -160, -80, -224, -56, -248, 56, -248, 80, -224, 80, -160, 64, -160, 64, -216, -64, -216, -64, -160)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-64, 192, -64, -216, 64, -216, 64, 192, 128, 192, 128, 64, 96, 32, 80, 32, 80, -224, 56, -248, -56, -248, -80, -224, -80, 32, -96, 32, -128, 64, -128, 192)
+
+[node name="zoom_area" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zoom_area"]
+position = Vector2(0, -186.5)
+shape = SubResource("RectangleShape2D_mf0go")
+
+[connection signal="body_entered" from="zoom_area" to="." method="_on_zoom_area_body_entered"]
+[connection signal="body_exited" from="zoom_area" to="." method="_on_zoom_area_body_exited"]

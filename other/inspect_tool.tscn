@@ -91,36 +91,84 @@ scale = Vector2(1, 1e-05)
 [node name="Polygon2D" type="Polygon2D" parent="InspectionTool/backLight"]
 show_behind_parent = true
 z_index = -1
-color = Color(0.141176, 0.458824, 0, 1)
+color = Color(0.270588, 0.8, 0, 1)
 polygon = PackedVector2Array(-60.1307, -28.7582, 60.1307, -28.7582, 60.1307, 28.7582, -60.1307, 28.7582)
 
 [node name="Polygon2D6" type="Polygon2D" parent="InspectionTool/backLight"]
 z_index = -1
-position = Vector2(0, 41.8301)
-color = Color(0.121569, 0.407843, 0, 1)
+position = Vector2(0, 33.9869)
+scale = Vector2(1, 0.500004)
+color = Color(0.305882, 0.898039, 0, 1)
 polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
 
-[node name="Polygon2D5" type="Polygon2D" parent="InspectionTool/backLight"]
+[node name="Polygon2D7" type="Polygon2D" parent="InspectionTool/backLight"]
 z_index = -1
-position = Vector2(0, 31.3726)
-color = Color(0.121569, 0.407843, 0, 1)
+position = Vector2(0, 28.7582)
+scale = Vector2(1, 0.500004)
+color = Color(0.305882, 0.898039, 0, 1)
 polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
 
-[node name="Polygon2D4" type="Polygon2D" parent="InspectionTool/backLight"]
+[node name="Polygon2D8" type="Polygon2D" parent="InspectionTool/backLight"]
 z_index = -1
-position = Vector2(0, 20.915)
-color = Color(0.121569, 0.407843, 0, 1)
+position = Vector2(0, 23.5294)
+scale = Vector2(1, 0.500004)
+color = Color(0.305882, 0.898039, 0, 1)
 polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
 
-[node name="Polygon2D3" type="Polygon2D" parent="InspectionTool/backLight"]
+[node name="Polygon2D9" type="Polygon2D" parent="InspectionTool/backLight"]
 z_index = -1
-position = Vector2(0, 10.4575)
-color = Color(0.121569, 0.407843, 0, 1)
+position = Vector2(0, 18.3007)
+scale = Vector2(1, 0.500004)
+color = Color(0.305882, 0.898039, 0, 1)
 polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
 
-[node name="Polygon2D2" type="Polygon2D" parent="InspectionTool/backLight"]
+[node name="Polygon2D10" type="Polygon2D" parent="InspectionTool/backLight"]
 z_index = -1
-color = Color(0.121569, 0.407843, 0, 1)
+position = Vector2(0, 13.0719)
+scale = Vector2(1, 0.500004)
+color = Color(0.305882, 0.898039, 0, 1)
+polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
+
+[node name="Polygon2D11" type="Polygon2D" parent="InspectionTool/backLight"]
+z_index = -1
+position = Vector2(0, 7.84314)
+scale = Vector2(1, 0.500004)
+color = Color(0.305882, 0.898039, 0, 1)
+polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
+
+[node name="Polygon2D12" type="Polygon2D" parent="InspectionTool/backLight"]
+z_index = -1
+position = Vector2(0, 2.61438)
+scale = Vector2(1, 0.500004)
+color = Color(0.305882, 0.898039, 0, 1)
+polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
+
+[node name="Polygon2D13" type="Polygon2D" parent="InspectionTool/backLight"]
+z_index = -1
+position = Vector2(0, -2.61438)
+scale = Vector2(1, 0.500004)
+color = Color(0.305882, 0.898039, 0, 1)
+polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
+
+[node name="Polygon2D14" type="Polygon2D" parent="InspectionTool/backLight"]
+z_index = -1
+position = Vector2(0, -7.84313)
+scale = Vector2(1, 0.500004)
+color = Color(0.305882, 0.898039, 0, 1)
+polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
+
+[node name="Polygon2D15" type="Polygon2D" parent="InspectionTool/backLight"]
+z_index = -1
+position = Vector2(0, -13.0719)
+scale = Vector2(1, 0.500004)
+color = Color(0.305882, 0.898039, 0, 1)
+polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
+
+[node name="Polygon2D16" type="Polygon2D" parent="InspectionTool/backLight"]
+z_index = -1
+position = Vector2(0, -18.3006)
+scale = Vector2(1, 0.500004)
+color = Color(0.305882, 0.898039, 0, 1)
 polygon = PackedVector2Array(60.1307, -23.5294, -60.1307, -23.5294, -60.1307, -18.3007, 60.1307, -18.3007)
 
 [node name="Label" type="Label" parent="InspectionTool"]

@@ -4,7 +4,7 @@ var selection = ""
 
 func _ready():
 	$CanvasLayer/Habitat_selection.hide()
-	$CanvasLayer/placeholder1_selection.hide()
+	$CanvasLayer/watch_tower_selection.hide()
 	
 func _process(delta):
 	if Global.BUS_crafting_menu_open == true:
@@ -19,10 +19,10 @@ func _process(delta):
 	else:
 		$CanvasLayer/Habitat_selection.hide()
 	
-	if selection == "selection1":
-		$CanvasLayer/placeholder1_selection.show()
+	if selection == "watch_tower":
+		$CanvasLayer/watch_tower_selection.show()
 	else:
-		$CanvasLayer/placeholder1_selection.hide()
+		$CanvasLayer/watch_tower_selection.hide()
 
 
 func _on_exit_pressed():
@@ -32,8 +32,8 @@ func _on_exit_pressed():
 
 func _on_hab_button_2_pressed():
 	selection = "HAB"
-func _on_placeholder_1_button_pressed():
-	selection = "selection1"
+func _on_tower_button_pressed():
+	selection = "watch_tower"
 func _on_placeholder_2_button_pressed():
 	selection = "selection2"
 func _on_placeholder_3_button_pressed():
@@ -51,3 +51,5 @@ func _on_placeholder_8_button_pressed():
 
 func _on_build_hab_pressed():
 	Global.hab_built = true
+func _on_build_tower_pressed():
+	Global.tower_built

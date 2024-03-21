@@ -14,6 +14,7 @@ func movement():
 		$AnimationPlayer.play("walking")
 	else:
 		$AnimationPlayer.play("RESET")
+	$Camera2D.zoom = Global.cameraZoom
 	move_and_slide()
 func items():
 	rock_count_label.text = str(Global.rockCount)
@@ -22,6 +23,7 @@ func items():
 func _physics_process(delta):
 	movement()
 	items()
+
 
 
 

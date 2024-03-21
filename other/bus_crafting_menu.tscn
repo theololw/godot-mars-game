@@ -20,6 +20,7 @@ offset_bottom = 1080.0
 color = Color(0.196078, 0.196078, 0.196078, 1)
 
 [node name="Habitat_selection" type="Node2D" parent="CanvasLayer"]
+visible = false
 
 [node name="selection_background" type="Polygon2D" parent="CanvasLayer/Habitat_selection"]
 position = Vector2(-16, 0)
@@ -27,15 +28,16 @@ color = Color(0.14902, 0.14902, 0.14902, 1)
 polygon = PackedVector2Array(1104, 1080, 1104, 0, 1424, 0, 1936, 0, 1936, 1080, 1424, 1080)
 
 [node name="selectionName" type="Label" parent="CanvasLayer/Habitat_selection"]
-offset_left = 1200.0
+offset_left = 1088.0
 offset_top = 64.0
-offset_right = 2416.0
+offset_right = 2752.0
 offset_bottom = 240.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.345098, 1, 0, 1)
 theme_override_fonts/font = ExtResource("3_hown0")
 theme_override_font_sizes/font_size = 176
 text = "MARS HABITAT"
+horizontal_alignment = 1
 
 [node name="Hab" type="Sprite2D" parent="CanvasLayer/Habitat_selection"]
 self_modulate = Color(0.345098, 1, 0, 1)
@@ -54,6 +56,7 @@ theme_override_colors/font_color = Color(0.345098, 1, 0, 1)
 theme_override_fonts/font = ExtResource("3_hown0")
 theme_override_font_sizes/font_size = 176
 text = "Marsian habitat, essential for comfortable survival. It comes precrafted with the Base upgrade station"
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="frame" type="Sprite2D" parent="CanvasLayer/Habitat_selection/description"]
@@ -74,15 +77,123 @@ theme_override_fonts/font = ExtResource("3_hown0")
 theme_override_font_sizes/font_size = 176
 text = "build"
 
-[node name="placeholder1_selection" type="Node2D" parent="CanvasLayer"]
-visible = false
+[node name="watch_tower_selection" type="Node2D" parent="CanvasLayer"]
 
-[node name="selection_background" type="Polygon2D" parent="CanvasLayer/placeholder1_selection"]
+[node name="selection_background" type="Polygon2D" parent="CanvasLayer/watch_tower_selection"]
 position = Vector2(-16, 0)
 color = Color(0.14902, 0.14902, 0.14902, 1)
 polygon = PackedVector2Array(1104, 1080, 1104, 0, 1424, 0, 1936, 0, 1936, 1080, 1424, 1080)
 
-[node name="Label" type="Label" parent="CanvasLayer/placeholder1_selection"]
+[node name="selectionName" type="Label" parent="CanvasLayer/watch_tower_selection"]
+offset_left = 1088.0
+offset_top = 64.0
+offset_right = 2752.0
+offset_bottom = 240.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.345098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_hown0")
+theme_override_font_sizes/font_size = 176
+text = "WATCH TOWER"
+horizontal_alignment = 1
+
+[node name="description" type="Label" parent="CanvasLayer/watch_tower_selection"]
+offset_left = 1216.0
+offset_top = 608.0
+offset_right = 4096.0
+offset_bottom = 1368.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.345098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_hown0")
+theme_override_font_sizes/font_size = 176
+text = "Allows to see further while inside the tower. 
+Useful for spotting rare rocks or points of interest"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="frame" type="Sprite2D" parent="CanvasLayer/watch_tower_selection/description"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(1380, 440)
+scale = Vector2(54.375, 52.5)
+texture = ExtResource("4_h4old")
+
+[node name="build_tower" type="Button" parent="CanvasLayer/watch_tower_selection"]
+offset_left = 1280.0
+offset_top = 896.0
+offset_right = 2176.0
+offset_bottom = 1152.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.345098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_hown0")
+theme_override_font_sizes/font_size = 176
+text = "build"
+
+[node name="placeholder2_selection" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="selection_background" type="Polygon2D" parent="CanvasLayer/placeholder2_selection"]
+position = Vector2(-16, 0)
+color = Color(0.14902, 0.14902, 0.14902, 1)
+polygon = PackedVector2Array(1104, 1080, 1104, 0, 1424, 0, 1936, 0, 1936, 1080, 1424, 1080)
+
+[node name="Label" type="Label" parent="CanvasLayer/placeholder2_selection"]
+offset_left = 1152.0
+offset_top = 168.0
+offset_right = 2368.0
+offset_bottom = 344.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.345098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_hown0")
+theme_override_font_sizes/font_size = 176
+text = "placeholder"
+
+[node name="placeholder3_selection" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="selection_background" type="Polygon2D" parent="CanvasLayer/placeholder3_selection"]
+position = Vector2(-16, 0)
+color = Color(0.14902, 0.14902, 0.14902, 1)
+polygon = PackedVector2Array(1104, 1080, 1104, 0, 1424, 0, 1936, 0, 1936, 1080, 1424, 1080)
+
+[node name="Label" type="Label" parent="CanvasLayer/placeholder3_selection"]
+offset_left = 1152.0
+offset_top = 168.0
+offset_right = 2368.0
+offset_bottom = 344.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.345098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_hown0")
+theme_override_font_sizes/font_size = 176
+text = "placeholder"
+
+[node name="placeholder4_selection" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="selection_background" type="Polygon2D" parent="CanvasLayer/placeholder4_selection"]
+position = Vector2(-16, 0)
+color = Color(0.14902, 0.14902, 0.14902, 1)
+polygon = PackedVector2Array(1104, 1080, 1104, 0, 1424, 0, 1936, 0, 1936, 1080, 1424, 1080)
+
+[node name="Label" type="Label" parent="CanvasLayer/placeholder4_selection"]
+offset_left = 1152.0
+offset_top = 168.0
+offset_right = 2368.0
+offset_bottom = 344.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.345098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_hown0")
+theme_override_font_sizes/font_size = 176
+text = "placeholder"
+
+[node name="placeholder5_selection" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="selection_background" type="Polygon2D" parent="CanvasLayer/placeholder5_selection"]
+position = Vector2(-16, 0)
+color = Color(0.14902, 0.14902, 0.14902, 1)
+polygon = PackedVector2Array(1104, 1080, 1104, 0, 1424, 0, 1936, 0, 1936, 1080, 1424, 1080)
+
+[node name="Label" type="Label" parent="CanvasLayer/placeholder5_selection"]
 offset_left = 1152.0
 offset_top = 168.0
 offset_right = 2368.0
@@ -121,7 +232,7 @@ offset_bottom = 320.0
 icon = ExtResource("2_eqe2y")
 expand_icon = true
 
-[node name="placeholder1_button" type="Button" parent="CanvasLayer/buttons"]
+[node name="tower_button" type="Button" parent="CanvasLayer/buttons"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 448.0
@@ -202,9 +313,10 @@ icon = ExtResource("4_f1o6k")
 expand_icon = true
 
 [connection signal="pressed" from="CanvasLayer/Habitat_selection/build_hab" to="." method="_on_build_hab_pressed"]
+[connection signal="pressed" from="CanvasLayer/watch_tower_selection/build_tower" to="." method="_on_build_tower_pressed"]
 [connection signal="pressed" from="CanvasLayer/buttons/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/buttons/HAB_button" to="." method="_on_hab_button_2_pressed"]
-[connection signal="pressed" from="CanvasLayer/buttons/placeholder1_button" to="." method="_on_placeholder_1_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/buttons/tower_button" to="." method="_on_tower_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/buttons/placeholder2_button" to="." method="_on_placeholder_2_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/buttons/placeholder3_button" to="." method="_on_placeholder_3_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/buttons/placeholder4_button" to="." method="_on_placeholder_4_button_pressed"]

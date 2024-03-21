@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b57kdpfumh8sd"]
+[gd_scene load_steps=11 format=3 uid="uid://b57kdpfumh8sd"]
 
 [ext_resource type="Script" path="res://structures/space_base.gd" id="1_c251c"]
 [ext_resource type="Texture2D" uid="uid://2l5ym2xdtc6o" path="res://sprites/hab.png" id="1_m5nyr"]
 [ext_resource type="Texture2D" uid="uid://bog644fk6jygf" path="res://sprites/ui/enter.png" id="3_oq13v"]
+[ext_resource type="Script" path="res://inspect_scripts/space_base_inspect.gd" id="4_qbm78"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewj5r"]
 size = Vector2(384, 504)
@@ -143,6 +144,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c52gg"]
 size = Vector2(64, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4gte"]
+size = Vector2(384, 504)
+
 [node name="space_base" type="Node2D"]
 script = ExtResource("1_c251c")
 
@@ -190,5 +194,15 @@ position = Vector2(0, 136)
 scale = Vector2(2, 2)
 texture = ExtResource("3_oq13v")
 
+[node name="inspect" type="Area2D" parent="."]
+script = ExtResource("4_qbm78")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inspect"]
+visible = false
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_v4gte")
+
 [connection signal="body_entered" from="enter" to="." method="_on_enter_body_entered"]
 [connection signal="body_exited" from="enter" to="." method="_on_enter_body_exited"]
+[connection signal="mouse_entered" from="inspect" to="inspect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="inspect" to="inspect" method="_on_mouse_exited"]

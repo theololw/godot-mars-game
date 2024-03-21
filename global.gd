@@ -7,6 +7,7 @@ var BUS_deployed = false
 var BUS_crafted = false
 
 var hab_built = false
+var tower_built = false
 
 #mats
 var rockCount = 0
@@ -18,10 +19,11 @@ var airLeft = maxAir
 var lastBuildingEntered
 
 var BUS_crafting_menu_open
+var cameraZoom = Vector2(1.3,1.3)
 
 
 func _ready():
-	pass
+	cheats()
 	
 func _process(delta):
 	pass
