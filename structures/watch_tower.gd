@@ -11,7 +11,7 @@ func _on_zoom_area_body_exited(body):
 
 func _process(delta):
 	if inZoomArea == true:
-		Global.airLeft = Global.maxAirs
+		Global.airLeft = Global.maxAir
 		
 		if !Global.cameraZoom <= Vector2(0.35,0.35):
 			Global.cameraZoom += Vector2(-1,-1) * delta
