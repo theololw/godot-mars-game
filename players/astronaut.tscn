@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://im8wtxhj0x2i"]
+[gd_scene load_steps=20 format=3 uid="uid://im8wtxhj0x2i"]
 
 [ext_resource type="Texture2D" uid="uid://b6dn5115sr7th" path="res://sprites/astronaut.png" id="1_5ct4t"]
 [ext_resource type="Script" path="res://players/astronaut.gd" id="1_vdrd5"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://cu1c0u206fqi1" path="res://sprites/ui/EndlessBossBattleRegular-v7Ey.ttf" id="6_yc3cr"]
 [ext_resource type="Script" path="res://players/dirt_generation.gd" id="6_yoma1"]
 [ext_resource type="Script" path="res://players/airTimer.gd" id="7_pxw2h"]
+[ext_resource type="Shader" path="res://shaders/crt.gdshader" id="8_fjvc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd3st"]
 size = Vector2(64, 56)
@@ -201,6 +202,10 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ttroc"]
+shader = ExtResource("8_fjvc6")
+shader_parameter/scanline_count = 126.352
+
 [node name="astronaut" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 37
@@ -280,6 +285,13 @@ label_settings = SubResource("LabelSettings_3g75l")
 [node name="glitch" type="ColorRect" parent="CanvasLayer2"]
 visible = false
 material = SubResource("ShaderMaterial_auqo2")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+visible = false
+material = SubResource("ShaderMaterial_ttroc")
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
