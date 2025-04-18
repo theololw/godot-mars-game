@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cqs287omajn6x"]
 
-[ext_resource type="Script" path="res://other/inspect_tool.gd" id="1_3lwle"]
+[ext_resource type="Script" uid="uid://0cgm8nukxmqa" path="res://other/inspect_tool.gd" id="1_3lwle"]
 [ext_resource type="FontFile" uid="uid://cu1c0u206fqi1" path="res://sprites/ui/EndlessBossBattleRegular-v7Ey.ttf" id="1_sevn7"]
 [ext_resource type="Texture2D" uid="uid://crtm2lhvdxy5r" path="res://sprites/ui/inspection_tool.png" id="2_2bjma"]
-[ext_resource type="Shader" path="res://shaders/radar.gdshader" id="4_soeld"]
+[ext_resource type="Shader" uid="uid://q6khi24u45sc" path="res://shaders/radar.gdshader" id="4_soeld"]
 [ext_resource type="Texture2D" uid="uid://d3dcbtbao2psa" path="res://sprites/inspect_tool_progress.png" id="5_ecdyp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8r638"]
@@ -65,9 +65,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_htd42"]
 _data = {
-"RESET": SubResource("Animation_mvupj"),
-"inspect_tool_off": SubResource("Animation_oivoa"),
-"inspect_tool_on": SubResource("Animation_1xj2k")
+&"RESET": SubResource("Animation_mvupj"),
+&"inspect_tool_off": SubResource("Animation_oivoa"),
+&"inspect_tool_on": SubResource("Animation_1xj2k")
 }
 
 [node name="inspectTool" type="CanvasLayer"]
@@ -199,7 +199,7 @@ mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="InspectionTool"]
 libraries = {
-"": SubResource("AnimationLibrary_htd42")
+&"": SubResource("AnimationLibrary_htd42")
 }
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="InspectionTool"]

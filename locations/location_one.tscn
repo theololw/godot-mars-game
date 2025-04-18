@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://nqcymw07sr6g"]
+[gd_scene load_steps=12 format=3 uid="uid://nqcymw07sr6g"]
 
-[ext_resource type="Script" path="res://locations/location_one.gd" id="1_ct8ak"]
-[ext_resource type="Script" path="res://locations/large_rock_generation.gd" id="1_von81"]
+[ext_resource type="Script" uid="uid://dxmu5a8ghudhe" path="res://locations/location_one.gd" id="1_ct8ak"]
+[ext_resource type="Script" uid="uid://cgi0spcdmpko8" path="res://locations/large_rock_generation.gd" id="1_von81"]
 [ext_resource type="PackedScene" uid="uid://im8wtxhj0x2i" path="res://players/astronaut.tscn" id="2_i6c6x"]
 [ext_resource type="Texture2D" uid="uid://ded0nelahb5bs" path="res://sprites/tilemap.png" id="3_6eb0d"]
 [ext_resource type="PackedScene" uid="uid://ckobn7rildqfq" path="res://structures/lander.tscn" id="4_e4hbj"]
-[ext_resource type="Shader" path="res://shaders/dust_particles.gdshader" id="6_f8dlq"]
-[ext_resource type="PackedScene" uid="uid://b25nbrmn1ylue" path="res://structures/watch_tower.tscn" id="7_pbr73"]
+[ext_resource type="Shader" uid="uid://c6bxed22ueqds" path="res://shaders/dust_particles.gdshader" id="6_f8dlq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gljgs"]
 texture = ExtResource("3_6eb0d")
@@ -31,9 +30,9 @@ noise = SubResource("FastNoiseLite_vmtbd")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kigpf"]
 shader = ExtResource("6_f8dlq")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_gie5w")
 shader_parameter/density = 0.45
 shader_parameter/speed = Vector2(0.02, 0.01)
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_gie5w")
 
 [node name="locationOne" type="Node2D"]
 script = ExtResource("1_ct8ak")
@@ -63,6 +62,3 @@ offset_bottom = -2558.0
 scale = Vector2(1.76717, 5.88159)
 mouse_filter = 2
 color = Color(0.490196, 0.121569, 0, 1)
-
-[node name="watch_tower" parent="." instance=ExtResource("7_pbr73")]
-position = Vector2(-600, 56)

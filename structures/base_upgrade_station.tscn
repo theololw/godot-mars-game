@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://f8omim7c7an3"]
+[gd_scene load_steps=10 format=3 uid="uid://f8omim7c7an3"]
 
 [ext_resource type="Texture2D" uid="uid://c327b5se7atgy" path="res://sprites/ui/structureSelect.png" id="1_5ru2h"]
-[ext_resource type="Script" path="res://structures/base_upgrade_station.gd" id="1_ssi1n"]
+[ext_resource type="Script" uid="uid://knhdlm3gq3y8" path="res://structures/base_upgrade_station.gd" id="1_ssi1n"]
 [ext_resource type="PackedScene" uid="uid://b57kdpfumh8sd" path="res://structures/space_base.tscn" id="3_ah7wh"]
-[ext_resource type="Script" path="res://inspect_scripts/BUS_inspect.gd" id="4_x26u7"]
+[ext_resource type="Script" uid="uid://ba0j67td7rwq4" path="res://inspect_scripts/BUS_inspect.gd" id="4_x26u7"]
+[ext_resource type="PackedScene" uid="uid://b25nbrmn1ylue" path="res://structures/watch_tower.tscn" id="5_seudc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7i0md"]
 size = Vector2(64, 64)
@@ -71,6 +72,9 @@ script = ExtResource("4_x26u7")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="inspect"]
 polygon = PackedVector2Array(-32, 32, -32, -32, 32, -32, 32, 32)
+
+[node name="watch_tower" parent="." instance=ExtResource("5_seudc")]
+position = Vector2(-704, -64)
 
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_exited" from="interact" to="." method="_on_interact_body_exited"]

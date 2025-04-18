@@ -23,6 +23,3 @@ func _process(_delta):
 
 	if inRange == false and hatch_opened != true:
 		open_ui.hide()
-
-
-

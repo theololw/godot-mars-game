@@ -1,14 +1,14 @@
 [gd_scene load_steps=19 format=3 uid="uid://ckobn7rildqfq"]
 
-[ext_resource type="Script" path="res://structures/lander.gd" id="1_jo5qb"]
+[ext_resource type="Script" uid="uid://dmbmonqtn1yjg" path="res://structures/lander.gd" id="1_jo5qb"]
 [ext_resource type="Texture2D" uid="uid://bbrqdx8xixsfw" path="res://sprites/lander.png" id="2_8kqbs"]
 [ext_resource type="Texture2D" uid="uid://bog644fk6jygf" path="res://sprites/ui/enter.png" id="3_c68rq"]
 [ext_resource type="Texture2D" uid="uid://dtl26oympwbr4" path="res://particles/smoke_04.png" id="4_64tfn"]
-[ext_resource type="Script" path="res://structures/BUSdeployPath.gd" id="4_bervc"]
-[ext_resource type="Script" path="res://structures/BUShatch.gd" id="4_umbl2"]
+[ext_resource type="Script" uid="uid://bo05t4dnrbycp" path="res://structures/BUSdeployPath.gd" id="4_bervc"]
+[ext_resource type="Script" uid="uid://bf3eb7m1hp6lv" path="res://structures/BUShatch.gd" id="4_umbl2"]
 [ext_resource type="PackedScene" uid="uid://f8omim7c7an3" path="res://structures/base_upgrade_station.tscn" id="5_iw5ul"]
 [ext_resource type="Texture2D" uid="uid://crat8fe18r5ni" path="res://sprites/ui/open_ui.png" id="5_wfnsv"]
-[ext_resource type="Script" path="res://inspect_scripts/lander_inspect.gd" id="9_tft3j"]
+[ext_resource type="Script" uid="uid://bkow5oo0twqrv" path="res://inspect_scripts/lander_inspect.gd" id="9_tft3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv8yj"]
 size = Vector2(256, 256)

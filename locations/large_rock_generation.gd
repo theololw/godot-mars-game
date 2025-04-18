@@ -24,4 +24,3 @@ func generate_random_position():
 	var rockYpos = randi_range(min_y,max_y)
 	var rockXpos = randi_range(min_x,max_x)
 	return Vector2(rockXpos * 128 + 64, rockYpos * 128 + 64)
-

@@ -25,7 +25,3 @@ func _on_quit_pressed():
 
 func toggle_pause():
 	paused = !paused
-
-
-
-

@@ -23,7 +23,7 @@ var cameraZoom = Vector2(1.3,1.3)
 
 
 func _ready():
-	cheats()
+	pass
 	
 func _process(delta):
 	pass
@@ -31,4 +31,3 @@ func _process(delta):
 
 func cheats():
 	BUS_crafted = true
-

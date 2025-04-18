@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://sbsss0cvwp62"]
 
-[ext_resource type="Script" path="res://rooms/space_base_inside.gd" id="1_4ltpk"]
+[ext_resource type="Script" uid="uid://dfy02shln80f6" path="res://rooms/space_base_inside.gd" id="1_4ltpk"]
 [ext_resource type="Texture2D" uid="uid://cp74utrpkicso" path="res://sprites/hab_inside.png" id="1_ogye2"]
 [ext_resource type="PackedScene" uid="uid://im8wtxhj0x2i" path="res://players/astronaut.tscn" id="2_dkfjg"]
 

@@ -19,9 +19,3 @@ func _process(delta):
 		Global.cameraZoom += Vector2(1,1) * delta
 		if Global.cameraZoom >= Vector2(1.3,1.3):
 			Global.cameraZoom = Vector2(1.3,1.3)
-
-
-
-
-
-

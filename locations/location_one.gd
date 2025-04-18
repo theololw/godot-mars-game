@@ -10,4 +10,3 @@ func _ready():
 	else:
 		spawnPosition = Vector2(0,-208)
 	$astronaut.position = spawnPosition
-

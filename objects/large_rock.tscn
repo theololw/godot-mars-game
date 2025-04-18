@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c7wwss8wgjl76"]
 
 [ext_resource type="Texture2D" uid="uid://bdn6ca7dsjn1u" path="res://sprites/rock.png" id="1_ksygd"]
-[ext_resource type="Script" path="res://objects/large_rock.gd" id="1_po8xs"]
+[ext_resource type="Script" uid="uid://cm36sw6qxr44e" path="res://objects/large_rock.gd" id="1_po8xs"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_f85i1"]
 polygon = PackedVector2Array(48, 56, 48, 40, 64, 40, 64, -8, 48, -8, 48, -40, 40, -40, 40, -48, 32, -48, 32, -56, -16, -56, -16, -40, -48, -40, -48, -16, -56, -16, -56, -8, -64, -8, -64, 40, -48, 40, -48, 56)
@@ -23,7 +23,7 @@ resource_name = "break_stone"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vlyes"]
 _data = {
-"break_stone": SubResource("Animation_lwpnb")
+&"break_stone": SubResource("Animation_lwpnb")
 }
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2ori1"]

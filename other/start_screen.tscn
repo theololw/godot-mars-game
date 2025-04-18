@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://baxdptflsjq7x"]
 
 [ext_resource type="Texture2D" uid="uid://crtm2lhvdxy5r" path="res://sprites/ui/inspection_tool.png" id="1_8lxf5"]
-[ext_resource type="Script" path="res://other/start_screen.gd" id="1_8r8tp"]
+[ext_resource type="Script" uid="uid://dicef3kaqykjo" path="res://other/start_screen.gd" id="1_8r8tp"]
 [ext_resource type="Texture2D" uid="uid://ded0nelahb5bs" path="res://sprites/tilemap.png" id="1_afelh"]
 [ext_resource type="FontFile" uid="uid://cu1c0u206fqi1" path="res://sprites/ui/EndlessBossBattleRegular-v7Ey.ttf" id="3_uomjh"]
 

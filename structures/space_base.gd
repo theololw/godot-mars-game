@@ -24,5 +24,3 @@ func _on_enter_body_entered(body):
 func _on_enter_body_exited(body):
 	if body is Player:
 		inRange = false
-
-

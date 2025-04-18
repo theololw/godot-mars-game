@@ -1,13 +1,13 @@
 [gd_scene load_steps=20 format=3 uid="uid://im8wtxhj0x2i"]
 
 [ext_resource type="Texture2D" uid="uid://b6dn5115sr7th" path="res://sprites/astronaut.png" id="1_5ct4t"]
-[ext_resource type="Script" path="res://players/astronaut.gd" id="1_vdrd5"]
-[ext_resource type="Shader" path="res://shaders/distance_blur.gdshader" id="4_55id8"]
-[ext_resource type="Shader" path="res://shaders/radar.gdshader" id="5_gsn01"]
+[ext_resource type="Script" uid="uid://da38uktgofyti" path="res://players/astronaut.gd" id="1_vdrd5"]
+[ext_resource type="Shader" uid="uid://bwcwgmjs3bo2v" path="res://shaders/distance_blur.gdshader" id="4_55id8"]
+[ext_resource type="Shader" uid="uid://q6khi24u45sc" path="res://shaders/radar.gdshader" id="5_gsn01"]
 [ext_resource type="FontFile" uid="uid://cu1c0u206fqi1" path="res://sprites/ui/EndlessBossBattleRegular-v7Ey.ttf" id="6_yc3cr"]
-[ext_resource type="Script" path="res://players/dirt_generation.gd" id="6_yoma1"]
-[ext_resource type="Script" path="res://players/airTimer.gd" id="7_pxw2h"]
-[ext_resource type="Shader" path="res://shaders/crt.gdshader" id="8_fjvc6"]
+[ext_resource type="Script" uid="uid://tnhh8up3j5ph" path="res://players/dirt_generation.gd" id="6_yoma1"]
+[ext_resource type="Script" uid="uid://gltpdsmlgapi" path="res://players/airTimer.gd" id="7_pxw2h"]
+[ext_resource type="Shader" uid="uid://d2sv8t1ws8ev8" path="res://shaders/crt.gdshader" id="8_fjvc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd3st"]
 size = Vector2(64, 56)
@@ -70,8 +70,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vayg"]
 _data = {
-"RESET": SubResource("Animation_dnhsf"),
-"walking": SubResource("Animation_nhphf")
+&"RESET": SubResource("Animation_dnhsf"),
+&"walking": SubResource("Animation_nhphf")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8upfn"]
@@ -186,8 +186,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gf7o4"]
 _data = {
-"RESET": SubResource("Animation_t5cej"),
-"asphyxiation": SubResource("Animation_l8rpp")
+&"RESET": SubResource("Animation_t5cej"),
+&"asphyxiation": SubResource("Animation_l8rpp")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_3g75l"]
@@ -224,7 +224,7 @@ hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3vayg")
+&"": SubResource("AnimationLibrary_3vayg")
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -246,7 +246,7 @@ mouse_filter = 2
 
 [node name="asphyxiation" type="AnimationPlayer" parent="CanvasLayer/airTimer"]
 libraries = {
-"": SubResource("AnimationLibrary_gf7o4")
+&"": SubResource("AnimationLibrary_gf7o4")
 }
 
 [node name="airBar" type="ProgressBar" parent="CanvasLayer/airTimer"]

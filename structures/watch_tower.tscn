@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b25nbrmn1ylue"]
 
-[ext_resource type="Script" path="res://structures/watch_tower.gd" id="1_3bagk"]
+[ext_resource type="Script" uid="uid://pr1kji0j3yy4" path="res://structures/watch_tower.gd" id="1_3bagk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mf0go"]
 size = Vector2(128, 53)
